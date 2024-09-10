@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import api from "../api/axios";
+import TextInput from "../ui/TextInput";
+import Button from "../ui/Button";
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -70,7 +73,7 @@ const MoviewWritePage = () => {
                             onChange={titleHandler} />
                 </label>
                 <label> 내용 :
-                <TextInput  height={400}
+                <TextInput  height={300}
                             value={content}
                             onChange={contentHandler} />
                 </label>

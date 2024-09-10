@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Button from "../ui/Button";
+import api from "../api/axios";
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -26,31 +28,31 @@ const ButtonContainer = styled.div`
 const HomePage = () => {
     const navigate = useNavigate();
     const [movie, setMovie] = useState([]);
-    const getMovie = async() => {
-        try {
-            const response = await api.get("movie/index");
-            setMovie(response.data);
-            console.log("debug >> axios get OK!! ", response.data);
-        } catch(err) {
-            console.log( err );
-        }
-    }
-    useEffect( () => {
-        getMovie();
-    }, [] );
+    // const getMovie = async() => {
+    //     try {
+    //         const response = await api.get("movie/index");
+    //         setMovie(response.data);
+    //         console.log("debug >> axios get OK!! ", response.data);
+    //     } catch(err) {
+    //         console.log( err );
+    //     }
+    // }
+    // useEffect( () => {
+    //     getMovie();
+    // }, [] );
     return (
         <Wrapper>
             <Container>
                 <ButtonContainer>
                     <Button 
-                        title="글 작성하기"
+                        title="영화 추가하기"
                         onClick={() => {
                             navigate("movie-write")
                         }} />
                     </ButtonContainer>
-            <MovieList 
+            {/* <MovieList 
                     data={movie}
-            />
+            /> */}
             </Container>
         </Wrapper>
     )
