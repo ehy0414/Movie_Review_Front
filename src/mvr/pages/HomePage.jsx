@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../ui/Button";
 import api from "../api/axios";
+import MovieList from "../list/MovieList";
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -28,18 +29,18 @@ const ButtonContainer = styled.div`
 const HomePage = () => {
     const navigate = useNavigate();
     const [movie, setMovie] = useState([]);
-    // const getMovie = async() => {
-    //     try {
-    //         const response = await api.get("movie/index");
-    //         setMovie(response.data);
-    //         console.log("debug >> axios get OK!! ", response.data);
-    //     } catch(err) {
-    //         console.log( err );
-    //     }
-    // }
-    // useEffect( () => {
-    //     getMovie();
-    // }, [] );
+    const getMovie = async() => {
+        try {
+            const response = await api.get("movie/index");
+            setMovie(response.data);
+            console.log("debug >> axios get OK!! ", response.data);
+        } catch(err) {
+            console.log( err );
+        }
+    }
+    useEffect( () => {
+        getMovie();
+    }, [] );
     return (
         <Wrapper>
             <Container>
@@ -50,9 +51,10 @@ const HomePage = () => {
                             navigate("movie-write")
                         }} />
                     </ButtonContainer>
-            {/* <MovieList 
+                    <br />
+            <MovieList 
                     data={movie}
-            /> */}
+            />
             </Container>
         </Wrapper>
     )

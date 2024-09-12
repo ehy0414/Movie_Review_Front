@@ -30,7 +30,6 @@ const ButtonContainer = styled.div`
 const MoviewWritePage = () => {
     const navigate = useNavigate();
 
-    //const [images, setImages] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
@@ -79,7 +78,7 @@ const MoviewWritePage = () => {
                 </label>
                 <ButtonContainer>
                     <Button title="영화 등록하기"
-                            onClick={(e) => {movieSave(title,content)}}
+                            onClick={(e) => {movieSave(title, content)}}
                             >
                     </Button>
                     &nbsp;&nbsp;&nbsp;

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './mvr/pages/HomePage';
 import MoviewWritePage from './mvr/pages/MovieWritePage';
+import MovieViewPage from './mvr/pages/MovieViewPage';
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='movie-write' element={<MoviewWritePage />}></Route>
+        <Route path='movie-view/:id' element={<MovieViewPage />}></Route>
       </Routes>
       </BrowserRouter>
   );
