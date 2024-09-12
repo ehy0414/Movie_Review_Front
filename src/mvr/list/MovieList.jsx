@@ -15,14 +15,15 @@ const Wrapper = styled.div`
 const MovieList = (props) => {
     return (
         <Wrapper>
-            { props.data.map( (movie) => {
-                return (
-                    <MovieItem 
-                        key={movie.id}
-                        data={movie}
-                    />
-                )
-            })
+            { props.data.filter((movie) => movie.title.includes(props.search))
+                        .map( (movie) => {
+                            return (
+                                <MovieItem 
+                                    key={movie.id}
+                                    data={movie}
+                                />
+                            )
+                        })
 
             }
         </Wrapper>

@@ -22,6 +22,19 @@ const Container = styled.div`
         }
     }
 `;
+const Input = styled.input`
+    width : 86%;
+    max-width: 720px;
+    padding : 8px 16px;
+    font-size : 16px;
+    border-width : 1px;
+    & > * {
+        :not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+    text-align: center;
+`;
 const ButtonContainer = styled.div`
     text-align: right;
 `
@@ -29,6 +42,9 @@ const ButtonContainer = styled.div`
 const HomePage = () => {
     const navigate = useNavigate();
     const [movie, setMovie] = useState([]);
+    const [search, setSearch] = useState("");
+    const [callbackSearch, setcallbackSearch] = useState("");
+
     const getMovie = async() => {
         try {
             const response = await api.get("movie/index");
@@ -44,6 +60,20 @@ const HomePage = () => {
     return (
         <Wrapper>
             <Container>
+            <Input
+                value={search}
+                placeholder="영화를 입력하세요"
+                type="text"
+                onChange={(e) => {
+                setSearch(e.target.value);
+                }}
+            />
+            <Button 
+                title="검색"
+                onClick={() => {
+                    setcallbackSearch(search);
+            }} />
+            <p/>
                 <ButtonContainer>
                     <Button 
                         title="영화 추가하기"
@@ -54,6 +84,7 @@ const HomePage = () => {
                     <br />
             <MovieList 
                     data={movie}
+                    search={callbackSearch}
             />
             </Container>
         </Wrapper>
