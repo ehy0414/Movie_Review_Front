@@ -30,7 +30,6 @@ const PostContainer = styled.div`
     padding: 8px 16px;
     border: 1px solid grey;
     border-radius: 8px;
-    background: #9C5250;
 `;
 const TitleText = styled.p`
     font-size: 28px;

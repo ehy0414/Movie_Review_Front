@@ -11,7 +11,9 @@ const Wrapper = styled.div`
             margin-bottom: 16px;
         }
     }
-        
+    :hover {
+        background: lightgrey;
+    }
 `;
 
 const CommentList = (props) => {
@@ -23,7 +25,8 @@ const CommentList = (props) => {
                     return (
                         <CommentItem 
                             key={comment.id}
-                            comments = {comment.content} />
+                            comments = {comment.content}
+                            data = {comment} />
                     )
                 }
             )}
